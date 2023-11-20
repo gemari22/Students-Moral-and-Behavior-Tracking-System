@@ -1,0 +1,166 @@
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0ecec;
+    text-align: justify;
+        
+}
+/* Header */
+header {
+    background-color: #0882bb;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: linear-gradient(45deg, #043469 50%, rgb(236, 236, 91) 50%);
+    
+}
+
+/* Navigation */
+
+
+
+.top-navigation{
+   
+    background-color: rgb(10, 10, 43);
+    padding: 10px;
+    text-align: right;
+    padding-right: 10px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.top-navigation a {
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+}
+/* Title */
+
+
+.title {
+    display: flex;
+    align-items: center;
+}
+
+.title h1 {
+    /* You can style the title as needed */
+    font-size: 50px;
+    color: #fff;
+    margin-left: 10px; /* Add spacing between the logo and title */
+}
+
+.logo img {
+    /* You can style the logo image as needed */
+    width: 100px; /* Set the width of the logo */
+    height: auto; /* Maintain aspect ratio */
+}
+
+nav {
+
+    color: rgb(10, 10, 43);
+    padding: 10px;
+    text-align: right;
+    padding-right: 10px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(10, 10, 43);
+    margin: 10px;
+    font-size: 22px;
+   
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.certificate {
+  
+    padding-right: 150px;
+    padding-left: 150px;
+    padding-top: 100px;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top:  30px;
+    
+    padding-top: 100px;
+    background-color: white;
+}
+
+.header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align:center;
+    margin-bottom: 40px;
+}
+
+.content {
+    font-size: 20px;
+    line-height: 1.5;
+    text-indent: 50px; /* Add a 20px indentation */
+    text-align: left;
+    
+}
+.towhom {
+    font-weight:bold;
+}
+.checkbox label[for= "checkbox"] {
+    margin: 10px 0;
+    
+}
+.checkbox label[for= "checkbox"] {
+    margin: 10px 0;
+    margin-top: 10px;
+    
+}
+
+
+.signature {
+    margin-top: 40px;
+   
+    text-align: center;
+}
+
+.issuer {
+    font-weight: bold;
+}
+
+
+        .certificate {
+            position: relative;
+        }
+
+       /* Adjust font size for all content */
+    .content, .header {
+        font-size: 14px;
+       
+    }
+        .certificate {
+            
+            padding-right: 150px;
+            padding-left: 150px;
+            padding-top: 100px;
+            max-width: 800px;
+            margin: 0 auto;
+            margin-top: 30px;
+            
+            padding-top: 200px;
+        }
+       /* Other styles... */
+
+.checkbox {
+    margin-top: 10px;
+    text-align: justify; /* Add this line to justify the content within checkboxes */
+}
+
+.checkbox label[for="checkbox"] {
+    margin: 10px 0;
+    margin-top: 10px;
+}
+
+/* Other styles... */

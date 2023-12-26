@@ -1,0 +1,75 @@
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0ecec;
+        
+}
+/* Header */
+header {
+    background-color: #0882bb;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: linear-gradient(45deg, #043469 50%, rgb(236, 236, 91) 50%);
+    
+}
+
+/* Navigation */
+
+
+
+.top-navigation{
+   
+    background-color: rgb(10, 10, 43);
+    padding: 10px;
+    text-align: right;
+    padding-right: 10px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.top-navigation a {
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+}
+/* Title */
+
+
+.title {
+    display: flex;
+    align-items: center;
+}
+
+.title h1 {
+    /* You can style the title as needed */
+    font-size: 50px;
+    color: #fff;
+    margin-left: 10px; /* Add spacing between the logo and title */
+}
+
+.logo img {
+    /* You can style the logo image as needed */
+    width: 100px; /* Set the width of the logo */
+    height: auto; /* Maintain aspect ratio */
+}
+
+nav {
+
+    color: rgb(10, 10, 43);
+    padding: 10px;
+    text-align: right;
+    padding-right: 10px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(10, 10, 43);
+    margin: 10px;
+    font-size: 22px;
+   
+}
+

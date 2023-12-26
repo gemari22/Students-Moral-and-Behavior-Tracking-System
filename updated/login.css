@@ -1,0 +1,133 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+div h1{
+    padding-top: 30px;
+    padding-bottom: 0px;
+    
+}
+h1{
+  
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    font-size: 100px;
+    font-weight: 5px;
+    text-align: center;
+    color: white;
+
+}
+
+h3{
+    
+    font-size: 20px;
+    font-weight: 5px;
+    text-align: center;
+   
+}
+
+body {
+    background-color: #dfdddd;
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(45deg, #043469  70%, rgb(236, 236, 91) 30%);
+    background: linear-gradient(45deg,  50%,  50%);
+    color: #fff;
+    padding: 10px;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo img {
+    width: 150px;
+    height: auto;
+    margin-right: 10px; /* Add spacing between the logo and the title */
+    margin-left: 250px;
+}
+
+
+.login-container {
+    
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 300px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 70px 70px 70px 70px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: white;
+}
+
+
+
+h2 {
+  text-align: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #11023B;
+  color: white;
+
+}
+
+form{
+  padding-top: 100px;
+}
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 95%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+  #li {
+  text-align: center;
+  background-color: #0077b6;
+  color: #fff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 20px;
+  margin-bottom: 15px;
+  
+}
+
+
+
+
+  

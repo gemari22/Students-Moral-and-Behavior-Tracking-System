@@ -111,12 +111,30 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             color: red;
             margin-top: 10px;
         }
+        h2 {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 10px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        padding-bottom: 10px;
+    }
+
+        h3 {
+        font-size: 12px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        color: #777;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
     </style>
 </head>
 <body>
     <!-- Main content -->
     <div class="form-container">
         <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+        <h2>Principal's Information</h2>
+        <h3>Note:The principal's name should be typed in all capital letters (CAPSLOCK).</h3>
             <div class="form-row">
                 <label for="newName">New Principal:</label>
                 <input type="text" id="newName" name="newName" value="<?php echo $currentName; ?>" required>

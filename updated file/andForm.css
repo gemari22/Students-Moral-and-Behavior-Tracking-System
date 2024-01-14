@@ -1,5 +1,4 @@
 
-
 body {
     margin: 0;
     padding: 0;
@@ -23,8 +22,6 @@ header {
 
 /* Navigation */
 
-
-
 .top-navigation{
    
     background-color: rgb(10, 10, 43);
@@ -46,14 +43,12 @@ header {
 }
 
 .title h1 {
-    /* You can style the title as needed */
     font-size: 50px;
     color: #fff;
     margin-left: 10px; /* Add spacing between the logo and title */
 }
 
 .logo img {
-    /* You can style the logo image as needed */
     width: 100px; /* Set the width of the logo */
     height: auto; /* Maintain aspect ratio */
 }
@@ -188,7 +183,7 @@ tr:nth-child(n+2) td.description {
     width: 20%;
 }
 
-/* Style for the button in the "Action" column */
+
 .action-button {
     background-color: #0074D9;
     color: #fff;
@@ -204,15 +199,12 @@ tr:nth-child(n+2) td.description {
 }
 
 
-
-
-/* Center the form on larger screens */
 .form-container {
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Style your form elements */
+
 .form-row {
     margin: 10px 0;
 }
@@ -246,7 +238,6 @@ button {
     display: none;
 }
 
-/* Add a media query for smaller screens */
 @media (max-width: 768px) {
     .form-container {
         width: 100%;

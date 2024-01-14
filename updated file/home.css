@@ -19,9 +19,6 @@ header {
 }
 
 /* Navigation */
-
-
-
 .top-navigation{
    
     background-color: rgb(10, 10, 43);
@@ -50,14 +47,14 @@ header {
 }
 
 .title h1 {
-    /* You can style the title as needed */
+  
     font-size: 50px;
     color: #fff;
     margin-left: 10px; /* Add spacing between the logo and title */
 }
 
 .logo img {
-    /* You can style the logo image as needed */
+
     width: 100px; /* Set the width of the logo */
     height: auto; /* Maintain aspect ratio */
 }
@@ -82,21 +79,15 @@ nav a {
   /* Main content */
   #content {
     margin: 20px;
-    font-size: 25px;
-    
-    
+    font-size: 25px;  
 
 }
-
-
-
 
 /* Container for the boxes */
 .box-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
-    
+    margin-bottom: 30px;  
 }
 
 /* Style for the boxes in the body */

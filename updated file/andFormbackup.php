@@ -1,47 +1,18 @@
 <?php
-// Database connection information
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
 $dbname = "admin";
 
-// Create a connection to the database
+// Create connection
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
-// Check the connection
+// Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Initialize variables
-$adname = '';
-$level = '';
-$name = '';
-$lrn = '';
-$birthdate = '';
-$birthplace = '';
-$age = '';
-$father = '';
-$occupation1 = '';
-$contact1 = '';
-$mother = '';
-$occupation2 = '';
-$contact2 = '';
-$language = '';
-$height = '';
-$weight = '';
-$earlydisease = '';
-$seriousaccident = '';
-$hobby = '';
-$specialtalent = '';
-$subeasy = '';
-$subdiff = '';
-
-
-
-// Retrieve the 'id' from the URL
 $id = isset($_GET['id']) ? $_GET['id'] : null;
-
 
 // Fetch data for the form fields based on the 'id'
 if ($id) {
@@ -72,39 +43,45 @@ if ($id) {
         $specialtalent = $row['specialtalent'];
         $subeasy = $row['subeasy'];
         $subdiff = $row['subdiff'];
+        $elem = $row['elem'];
+        $hs = $row['hs'];
+        $college = $row['college'];
+    } else {
+        echo "Student not found!";
     }
 }
 
-// Handle form submissions to update data
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['save'])) {
-        // Retrieve and sanitize form input fields
-        $adname = mysqli_real_escape_string($conn, $_POST['adname']);
-        $level = mysqli_real_escape_string($conn, $_POST['level']);
-        $name = mysqli_real_escape_string($conn, $_POST['name']);
-        $lrn = mysqli_real_escape_string($conn, $_POST['lrn']);
-        $birthdate = mysqli_real_escape_string($conn, $_POST['birthdate']);
-        $birthplace = mysqli_real_escape_string($conn, $_POST['birthplace']);
-        $age = mysqli_real_escape_string($conn, $_POST['age']);
-        $father = mysqli_real_escape_string($conn, $_POST['father']);
-        $occupation1 = mysqli_real_escape_string($conn, $_POST['occupation1']);
-        $contact1 = mysqli_real_escape_string($conn, $_POST['contact1']);
-        $mother = mysqli_real_escape_string($conn, $_POST['mother']);
-        $occupation2 = mysqli_real_escape_string($conn, $_POST['occupation2']);
-        $contact2 = mysqli_real_escape_string($conn, $_POST['contact2']);
-        $language = mysqli_real_escape_string($conn, $_POST['language']);
-        $height = mysqli_real_escape_string($conn, $_POST['height']);  // Assuming height is a float
-        $weight = mysqli_real_escape_string($conn, $_POST['weight']);
-        $earlydisease = mysqli_real_escape_string($conn, $_POST['earlydisease']);
-        $seriousaccident = mysqli_real_escape_string($conn, $_POST['seriousaccident']);
-        $hobby = mysqli_real_escape_string($conn, $_POST['hobby']);
-        $specialtalent = mysqli_real_escape_string($conn, $_POST['specialtalent']);
-        $subeasy = mysqli_real_escape_string($conn, $_POST['subeasy']);
-        $subdiff = mysqli_real_escape_string($conn, $_POST['subdiff']);
-        
-        // Update the database record using a prepared statement
-       
-        $updateSql = "UPDATE record SET
+// Save edited student information
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id = $_POST['id'];
+    $adname = mysqli_real_escape_string($conn, $_POST['adname']);
+    $level = mysqli_real_escape_string($conn, $_POST['level']);
+    $name = mysqli_real_escape_string($conn, $_POST['name']);
+    $lrn = mysqli_real_escape_string($conn, $_POST['lrn']);
+    $birthdate = mysqli_real_escape_string($conn, $_POST['birthdate']);
+    $birthplace = mysqli_real_escape_string($conn, $_POST['birthplace']);
+    $age = mysqli_real_escape_string($conn, $_POST['age']);
+    $father = mysqli_real_escape_string($conn, $_POST['father']);
+    $occupation1 = mysqli_real_escape_string($conn, $_POST['occupation1']);
+    $contact1 = mysqli_real_escape_string($conn, $_POST['contact1']);
+    $mother = mysqli_real_escape_string($conn, $_POST['mother']);
+    $occupation2 = mysqli_real_escape_string($conn, $_POST['occupation2']);
+    $contact2 = mysqli_real_escape_string($conn, $_POST['contact2']);
+    $language = mysqli_real_escape_string($conn, $_POST['language']);
+    $height = mysqli_real_escape_string($conn, $_POST['height']);  // Assuming height is a float
+    $weight = mysqli_real_escape_string($conn, $_POST['weight']);
+    $earlydisease = mysqli_real_escape_string($conn, $_POST['earlydisease']);
+    $seriousaccident = mysqli_real_escape_string($conn, $_POST['seriousaccident']);
+    $hobby = mysqli_real_escape_string($conn, $_POST['hobby']);
+    $specialtalent = mysqli_real_escape_string($conn, $_POST['specialtalent']);
+    $subeasy = mysqli_real_escape_string($conn, $_POST['subeasy']);
+    $subdiff = mysqli_real_escape_string($conn, $_POST['subdiff']);
+    $elem = mysqli_real_escape_string($conn, $_POST['elem']);
+    $hs = mysqli_real_escape_string($conn, $_POST['hs']);
+    $college = mysqli_real_escape_string($conn, $_POST['college']);
+    
+    // Update data in the database using prepared statement
+    $sql = "UPDATE record SET
             adname = ?,
             level = ?,
             name = ?,
@@ -126,38 +103,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             hobby = ?,
             specialtalent = ?,
             subeasy = ?,
-            subdiff = ?
+            subdiff = ?,
+            elem = ?,
+            hs = ?,
+            college = ?
             WHERE id = ?";
 
-        // Prepare the statement
-        $stmt = mysqli_prepare($conn, $updateSql);
+    // Use prepared statement to avoid SQL injection
+    $stmt = mysqli_prepare($conn, $sql);
 
-        // Check if the prepare statement succeeded
-        if ($stmt) {
-            // Bind parameters to the placeholders
-            mysqli_stmt_bind_param($stmt, "sisissississisddssssssi",
-                $adname, $level, $name, $lrn, $birthdate, $birthplace, $age,
-                $father, $occupation1, $contact1, $mother, $occupation2, $contact2,
-                $language, $height, $weight, $earlydisease, $seriousaccident, $hobby,
-                $specialtalent, $subeasy, $subdiff, $id);
+    // Check if the prepared statement is successful
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "ssssssssssssssssssssssssss",
+            $adname, $level, $name, $lrn, $birthdate, $birthplace, $age, $father, 
+            $occupation1, $contact1, $mother, $occupation2, $contact2, $language, 
+            $height, $weight, $earlydisease, $seriousaccident, $hobby, $specialtalent, 
+            $subeasy, $subdiff, $elem, $hs, $college, $id);
 
-            // Execute the statement
-            if (mysqli_stmt_execute($stmt)) {
-                echo '<div class="alert">Record updated successfully</div>';
-            } else {
-                echo "Error updating record: " . mysqli_error($conn);
-            }
-
-            // Close the statement
-            mysqli_stmt_close($stmt);
+        // Execute the statement
+        if (mysqli_stmt_execute($stmt)) {
+            $alertMessage = '<div id="successAlert" class="alert success">&#10003; Student information updated successfully</div>';
         } else {
-            echo "Error preparing statement: " . mysqli_error($conn);
+            $alertMessage = '<div id="errorAlert" class="alert error">&#10007; Error updating student information: ' . mysqli_error($conn) . '</div>';
         }
+
+        // Close the statement
+        mysqli_stmt_close($stmt);
+    } else {
+        $alertMessage = '<div id="errorAlert" class="alert error">&#10007; Error preparing update statement: ' . mysqli_error($conn) . '</div>';
     }
+
+    // Close the connection
+    mysqli_close($conn);
 }
-
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -165,84 +145,108 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="andForm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5IepaaNlOxIh9HCAz3r9UQ9z5TCB5FaIbAAK5LhNPMJm+fc" crossorigin="anonymous">
+
     <title>Anecdotal Form</title>
 
-             <!-- Additional Navigation -->
+    <!-- Additional Navigation -->
     <nav class="top-navigation">
         <a href="principal.php">Principal Information</a>
-        <a href="account.php">Change Account Infomation</a>
-
+        <a href="account.php">Change Account Information</a>
     </nav>
+
     <header>
-         <!-- Title on the left -->
-            <div class="title">
-                <div class="logo">
-                    <img src="defemnhs.png" alt="Logo">
-                </div>
-                <h1>ETHICARE</h1>
+        <!-- Title on the left -->
+        <div class="title">
+            <div class="logo">
+                <img src="defemnhs.png" alt="Logo">
             </div>
-            <!-- Navigation on the right -->
-            <nav>
-                <a href="home.html">Homepage</a>
-                <a href="studlist.php">Student Profile</a>
-                <a href="form.php">Anecdotal Form</a>
-                <a href="aboutus.html">About</a>
-                <a href="login.php">Logout</a>
+            <h1>ETHICARE</h1>
+        </div>
+
+        <!-- Navigation on the right -->
+        <nav>
+            <a href="home.html">Homepage</a>
+            <a href="studlist.php">Student Profile</a>
+            <a href="form.php">Anecdotal Form</a>
+            <a href="aboutus.html">About</a>
+            <a href="login.php">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Add this style section for alert styling -->
+    <style>
+        /* Add this style to center the alert */
+        .alert {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            z-index: 1;
+            width: 800px;
+            text-align: center;
+            font-size: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style for success alert */
+        .alert.success {
+            color: black;
+            background-color: #dff0d8;
+            border-color: black;
+        }
+
+        /* Style for error alert */
+        .alert.error {
+            color: red;
+            background-color: #FFD2D2;
+            border-color: red;
+        }
+    </style>
     
-            </nav>
-        </header>
-   
 </head>
+
 <style>
     input[type="submit"] {
-    background-color: #007BFF;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-   
-    
-}
-input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-/* Add this style to center the alert */
-.alert {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: skyblue;
-    padding: 20px  20px 20px;
-    border: 1px solid black;
-    border-radius: 5px;
-    z-index: 1;
-    width: 500px;
-  
-    text-align: center;
+        background-color: #007BFF;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-    font-size: 20px;
-}
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
 
+    /* Add this style to center the alert */
 </style>
 
 
 <body>
-<form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
-        <!-- Display data from the first row in your form fields -->
-        <div class="form-row">
-            <label for="adname">Name of the Adviser:</label>
-            <input type="text" id="adname" name="adname" value="<?php echo $adname; ?>" required>
-        </div>
+    
+    
+    <div class="container">
 
-        <div class="form-row">
-            <label for="level">Grade Level/Strand:</label>
-            <input type="text" id="level" name="level" value="<?php echo $level; ?>" required>
-        </div>
-        <h2>ANECDOTAL FORM</h2>
-        
-        <div class="form-row">
+        <?php echo isset($alertMessage) ? $alertMessage : ''; ?>
+
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <div class="form-row">
+                <label for="adname">Name of the Adviser:</label>
+                <input type="text" id="adname" name="adname" value="<?php echo $adname; ?>" required>
+            </div>
+
+            <div class="form-row">
+                <label for="level">Grade Level/Strand:</label>
+                <input type="text" id="level" name="level" value="<?php echo $level; ?>" required>
+            </div>
+            <h2>ANECDOTAL FORM</h2>
+            <div class="form-row">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" value="<?php echo $name; ?>" required>
             <label for="lrn">LRN:</label>
@@ -314,39 +318,24 @@ input[type="submit"]:hover {
         <h3>Do you plan to Graduate?</h3>
         <div class="form-row">
             <label for="elem">Elementary:</label>
-            <input type="text" id="elem" name="elem" required>
+            <input type="text" id="elem" name="elem" value="<?php echo $elem; ?>" required>
             
         </div>
         <div class="form-row">
-            <label for="highschool">Highschool:</label>
-            <input type="text" id="highschool" name="highschool" required>
+            <label for="hs">Highschool:</label>
+            <input type="text" id="hs" name="hs"value="<?php echo $hs; ?>" required>
             
         </div>
         <div class="form-row">
             <label for="college">College:</label>
-            <input type="text" id="college" name="college" required>
+            <input type="text" id="college" name="college" value="<?php echo $college; ?>" required>
             
         </div>
 
-        <input type="submit" name="save" value="Save">
-    
-        
-    </form>
-    
-    <script>
-    // Function to show the alert and set a timeout to hide it after 5 seconds
-    function showAlert(message) {
-            const alertDiv = document.querySelector('.alert');
-            alertDiv.innerHTML = message;
-            alertDiv.style.display = 'block';
 
-            setTimeout(function () {
-                alertDiv.style.display = 'none';
-            }, 5000); // 5000 milliseconds = 5 seconds
-        }
-
-       
-
-    </script>
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <input type="submit" name="save" value="Save">
+        </form>
+    </div>
 </body>
 </html>

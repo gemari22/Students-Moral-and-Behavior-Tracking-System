@@ -21,9 +21,6 @@ header {
 }
 
 /* Navigation */
-
-
-
 .top-navigation{
    
     background-color: rgb(10, 10, 43);
@@ -37,22 +34,19 @@ header {
     font-size: 15px;
 }
 /* Title */
-
-
 .title {
     display: flex;
     align-items: center;
 }
 
 .title h1 {
-    /* You can style the title as needed */
+   
     font-size: 50px;
     color: #fff;
     margin-left: 10px; /* Add spacing between the logo and title */
 }
 
 .logo img {
-    /* You can style the logo image as needed */
     width: 100px; /* Set the width of the logo */
     height: auto; /* Maintain aspect ratio */
 }
@@ -102,7 +96,7 @@ body {
 .content {
     font-size: 20px;
     line-height: 1.5;
-    text-indent: 50px; /* Add a 20px indentation */
+    text-indent: 50px; 
     text-align: left;
     
 }
@@ -131,36 +125,32 @@ body {
 }
 
 
-        .certificate {
-            position: relative;
-        }
+.certificate {
+    position: relative;
+ }
 
        /* Adjust font size for all content */
-    .content, .header {
-        font-size: 14px;
+.content, .header {
+    font-size: 14px;
        
-    }
-        .certificate {
+}
+.certificate {
             
-            padding-right: 150px;
-            padding-left: 150px;
-            padding-top: 100px;
-            max-width: 800px;
-            margin: 0 auto;
-            margin-top: 30px;
-            
-            padding-top: 200px;
-        }
-       /* Other styles... */
+    padding-right: 150px;
+    padding-left: 150px;
+    padding-top: 100px;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding-top: 200px;
+}
 
 .checkbox {
     margin-top: 10px;
-    text-align: justify; /* Add this line to justify the content within checkboxes */
+    text-align: justify;
 }
 
 .checkbox label[for="checkbox"] {
     margin: 10px 0;
     margin-top: 10px;
 }
-
-/* Other styles... */

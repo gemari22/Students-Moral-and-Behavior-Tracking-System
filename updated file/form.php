@@ -1,70 +1,66 @@
 
-            <?php
-                include("functions.php");
+ <?php
+    include("functions.php");
           
           
-                // Database connection information
-                $dbhost = "localhost";
-                $dbuser = "root";
-                $dbpass = "";
-                $dbname = "admin";
+    // Database connection information
+    $dbhost = "localhost";
+    $dbuser = "root";
+    $dbpass = "";
+    $dbname = "admin";
                 
-                // Create a connection to the database
-                $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+    // Create a connection to the database
+    $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
-                if (!$conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
-                if($_SERVER['REQUEST_METHOD'] == "POST")
-                {
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    if($_SERVER['REQUEST_METHOD'] == "POST")
+    {
 
-                $adname = $_POST['adname'];
-                $name = $_POST['name'];
-                $level = $_POST['level'];
-                $lrn = $_POST['lrn'];
-                $birthdate = $_POST['birthdate'];
-                $birthplace = $_POST['birthplace'];
-                $father = $_POST['father'];
-                $contact1 = $_POST['contact1'];
-                $occupation1 = $_POST['occupation1'];
-                $mother = $_POST['mother'];
-                $contact2 = $_POST['contact2'];
-                $occupation2 = $_POST['occupation2'];
-                $language = $_POST['language'];
-                $earlydisease = $_POST['earlydisease'];
-                $hobby = $_POST['hobby'];
-                $subeasy = $_POST['subeasy'];
-                $age = $_POST['age'];
-                $height = $_POST['height'];
-                $weight = $_POST['weight'];
-                $seriousaccident = $_POST['seriousaccident'];
-                $specialtalent = $_POST['specialtalent'];
-                $subdiff = $_POST['subdiff'];
-                $elem = $_POST['elem'];
-                $hs = $_POST['hs'];
-                $college = $_POST['college'];
-                $category = $_POST['category'];
-            
+        $adname = $_POST['adname'];
+        $name = $_POST['name'];
+        $level = $_POST['level'];
+        $lrn = $_POST['lrn'];
+        $birthdate = $_POST['birthdate'];
+        $birthplace = $_POST['birthplace'];
+        $father = $_POST['father'];
+        $contact1 = $_POST['contact1'];
+        $occupation1 = $_POST['occupation1'];
+        $mother = $_POST['mother'];
+        $contact2 = $_POST['contact2'];
+        $occupation2 = $_POST['occupation2'];
+        $language = $_POST['language'];
+        $earlydisease = $_POST['earlydisease'];
+        $hobby = $_POST['hobby'];
+        $subeasy = $_POST['subeasy'];
+        $age = $_POST['age'];
+        $height = $_POST['height'];
+        $weight = $_POST['weight'];
+        $seriousaccident = $_POST['seriousaccident'];
+        $specialtalent = $_POST['specialtalent'];
+        $subdiff = $_POST['subdiff'];
+        $elem = $_POST['elem'];
+        $hs = $_POST['hs'];
+        $college = $_POST['college'];
+        $category = $_POST['category'];
+        
 
+// Insert the data into the database
+        $sql = $sql = "INSERT INTO record (adname, name, level, lrn, birthdate, birthplace, father, contact1, occupation1, mother, contact2, occupation2, language, earlydisease, hobby, subeasy, age, height, weight, seriousaccident, specialtalent, subdiff, elem, hs, college, category)
+        VALUES ('$adname', '$name', '$level', '$lrn', '$birthdate', '$birthplace', '$father', '$contact1', '$occupation1', '$mother', '$contact2', '$occupation2', '$language', '$earlydisease', '$hobby', '$subeasy', '$age', '$height', '$weight', '$seriousaccident', '$specialtalent', '$subdiff', '$elem', '$hs', '$college', '$category')";
 
-                // Insert the data into the database
-                $sql = $sql = "INSERT INTO record (adname, name, level, lrn, birthdate, birthplace, father, contact1, occupation1, mother, contact2, occupation2, language, earlydisease, hobby, subeasy, age, height, weight, seriousaccident, specialtalent, subdiff, elem, hs, college, category)
-                VALUES ('$adname', '$name', '$level', '$lrn', '$birthdate', '$birthplace', '$father', '$contact1', '$occupation1', '$mother', '$contact2', '$occupation2', '$language', '$earlydisease', '$hobby', '$subeasy', '$age', '$height', '$weight', '$seriousaccident', '$specialtalent', '$subdiff', '$elem', '$hs', '$college', '$category')";
+            if (mysqli_query($conn, $sql)) {
+                $success_message = "Data added successfully!";
+            } else {
+                $error_message = "Error: " . mysqli_error($conn);
+            }
+    }
 
-                      if (mysqli_query($conn, $sql)) {
-                        $success_message = "Data added successfully!";
-                    } else {
-                        $error_message = "Error: " . mysqli_error($conn);
-                    }
-                }
-
-                mysqli_close($conn);
+        mysqli_close($conn);
                 
-                ?>
+?>
  
-
-   
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,33 +82,52 @@
 
     /* Style for success message */
     .success-message {
-        color:white;
-        background-color: yellowgreen; /* Optional: add a background color for success messages */
-        padding: 10px 10px 10px 10px;
-        border: 1px solid #3c763d;
-        border-radius: 4px;
-        margin-bottom: 10px;
+        position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+            z-index: 1;
+            width: 800px;
+            text-align: center;
+            font-size: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: black;
+            background-color: #dff0d8;
+            border-color: black;
     }
 
     /* Style for error message */
     .error-message {
-        color: red;
-        background-color: #f2dede; /* Optional: add a background color for error messages */
-        padding: 10px 10px 10px 10px;
-        border: 1px solid #a94442;
-        border-radius: 4px;
-        margin-bottom: 10px;
+        position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            z-index: 1;
+            width: 800px;
+            text-align: center;
+            font-size: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: red;
+            background-color: #dff0d8;
+            border-color: red;
     }
 </style>
 
 
-        
-             <nav class="top-navigation">
-             <a href="principal.php">Principal Information</a>
+        <nav class="top-navigation">
+            <a href="principal.php">Principal Information</a>
             <a href="account.php">Change Account Infomation</a>
 
-            </nav>
-        <!-- Header -->
+        </nav>
+      
         <header>
             <!-- Title on the left -->
             <div class="title">
@@ -242,12 +257,12 @@
             <input type="text" id="college" name="college" required>
             
         </div>
-        <!-- Place the "Add" button inside a <div> for alignment -->
+      
         <div class="add-button-container">
         <button type="submit" id="addButton" class="add-button">Add</button>
             </div>
 
-          <!-- Place the message-container outside of the form-container -->
+         
 <div class="message-container">
     <?php
     if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($success_message)) {
@@ -264,9 +279,6 @@
         document.querySelector('.message-container').style.display = 'none';
     }, 5000);
 </script>
-
-
-
 
     </form>
     </div>

@@ -1,5 +1,4 @@
 
-        /* Basic styling for the dashboard */
 
         body {
             margin: 0;
@@ -7,7 +6,7 @@
             font-size: 20px;
             
         }
-        /* Header */
+       
         header {
             background-color: #0882bb;
             color: #fff;
@@ -32,7 +31,7 @@
             color: rgb(255, 255, 255);
             font-size: 15px;
         }
-        /* Title */
+
         .header {
             display: flex;
             justify-content: space-between; /* Aligns items horizontally */
@@ -77,8 +76,6 @@
            
         }
     
-
-        
         /* Main content */
         #content {
             margin: 20px;
@@ -100,12 +97,9 @@
             margin-top: 80px;
             align-items: center;
             flex-direction: column;
-            
-            
+               
         }
 
-
-       /* Style for the title */
         .box h2 {
             font-size: 24px;
             margin-bottom: 5px;
@@ -113,7 +107,7 @@
         }
 
 
-/* Style for the image */
+        /* Style for the image */
         .box img {
             max-width: 300px;
             max-height: 300px;
@@ -121,15 +115,14 @@
             align-items: start;
         }
 
-/* Style for the text */
+        /* Style for the text */
         .box .text {
          font-size: 20px;
          text-align: center;
-         font-weight: bold;
-         
+         font-weight: bold;   
         }
 
-/* Style for the text paragraphs */
+        /* Style for the text paragraphs */
         .box .text p {
              margin: 0px 0;
              font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

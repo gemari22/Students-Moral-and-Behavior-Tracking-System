@@ -43,9 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 ?>
 
-<!-- Rest of the HTML code remains unchanged -->
-
-
 
 <!DOCTYPE html>
 <html>
@@ -56,23 +53,20 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <title>Change Principal</title>
 </head>
 
-    <!-- Header -->
-    
-         <!-- Additional Navigation -->
     <nav class="top-navigation">
         <<a href="principal.php">Principal Information</a>
         <a href="account.php">Change Account Infomation</a>
 
     </nav>
     <header>
-        <!-- Title on the left -->
+ 
         <div class="title">
             <div class="logo">
                 <img src="defemnhs.png" alt="Logo">
             </div>
             <h1>ETHICARE</h1>
         </div>
-        <!-- Navigation on the right -->
+  
         <nav>
             <a href="home.html">Homepage</a>
             <a href="studlist.php">Student Profile</a>
@@ -82,9 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         </nav>
     </header>
 
-    <!-- Add a <style> tag for internal CSS -->
     <style>
-        /* Add your custom styles here */
+
         .form-container {
             max-width: 400px;
             margin: 0 auto;
@@ -150,7 +143,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <input type="text" id="newPosition2" name="newPosition2" value="<?php echo $currentPosition2; ?>" required>
             </div>
 
-            <!-- Place the "Update" button inside a <div> for alignment -->
             <div class="update-button-container">
                 <button type="submit" class="update-button">Update</button>
             </div>

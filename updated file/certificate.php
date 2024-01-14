@@ -87,10 +87,6 @@ if (mysqli_num_rows($principal_result) > 0) {
     die("Principal information not found in the ''principal' table.");
 }
 
-
-
-
-// Function to format the date as "18th day of July 2023"
 function formatDate($date) {
     $day = $date->format('j');
     $month = $date->format('F');
@@ -119,8 +115,8 @@ function getDaySuffix($day) {
 $currentDate = new DateTime();
 $formattedDate = formatDate($currentDate);
 
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -128,7 +124,6 @@ $formattedDate = formatDate($currentDate);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="certificate1.css">
     <style>
-        /* Additional CSS for the print button */
         .print-button-container {
             text-align: center;
             margin-top: 20px;
@@ -146,13 +141,12 @@ $formattedDate = formatDate($currentDate);
         .print-button:hover {
             background-color: #45a049;
         }
-        /* Regular styles for screen */
+   
         body {
             font-size: 20px;
         }
 
         .certificate {
-            /* Your regular certificate styles */
             padding-left: 30px;
             padding-right: 30px;
             padding-top: 100px;
@@ -172,7 +166,7 @@ $formattedDate = formatDate($currentDate);
         /* Media query for print */
         @media print {
             body {
-                font-size: 18px; /* Set a fixed font size for printing */
+                font-size: 18px; 
             }
 
             .top-logo {
@@ -185,13 +179,13 @@ $formattedDate = formatDate($currentDate);
 
             .top-logo img,
             .bottom-logo img {
-                width: 700px; /* Set a fixed width for printing */
+                width: 700px; 
             }
 
             .print-button-container,
             header,
             nav {
-                display: none; /* Hide the header, navigation, and print button during printing */
+                display: none; 
             }
     
 
@@ -204,8 +198,8 @@ $formattedDate = formatDate($currentDate);
             }
 
             .hanging-indent {
-                text-indent: 40px; /* Adjust the value as needed for the first line */
-                margin-left: 40px; /* Adjust the same value as text-indent for subsequent lines */
+                text-indent: 40px;
+                margin-left: 40px;
             }
         }
 
@@ -213,23 +207,20 @@ $formattedDate = formatDate($currentDate);
     <title>Certificate</title>
 </head>
 
-    <!-- Header -->
-    
-         <!-- Additional Navigation -->
     <nav class="top-navigation">
         <a href="principal.php">Principal Information</a>
         <a href="account.php">Change Account Infomation</a>
 
     </nav>
     <header>
-        <!-- Title on the left -->
+ 
         <div class="title">
             <div class="logo">
                 <img src="defemnhs.png" alt="Logo">
             </div>
             <h1>ETHICARE</h1>
         </div>
-        <!-- Navigation on the right -->
+
         <nav>
             <a href="home.html">Homepage</a>
             <a href="studlist.php">Student Profile</a>
@@ -240,8 +231,6 @@ $formattedDate = formatDate($currentDate);
     </header>
     
     <body>
-    
-
     <div class="certificate">
         <div class="top-logo">
             <img src="top-logo.png" alt="Top Logo" class="top-logo">
@@ -257,80 +246,72 @@ $formattedDate = formatDate($currentDate);
                 <p>&emsp;&emsp;&emsp;&emsp;It is certified that <?php echo htmlspecialchars($category); ?> character is categorized as:</p>
 
             
+             <div class="checkbox">
+                <input type="checkbox" id="a" <?php echo ($majoroffense == 0 && $minoroffense == 0) ? 'checked' : ''; ?>>
+                <label for="checkbox"><strong>Category A:</strong> The student is of good moral character and has never been subjected to administrative proceedings for violation/s of the school policies.</label>
+            </div>
             <div class="checkbox">
-    <input type="checkbox" id="a" <?php echo ($majoroffense == 0 && $minoroffense == 0) ? 'checked' : ''; ?>>
-    <label for="checkbox"><strong>Category A:</strong> The student is of good moral character and has never been subjected to administrative proceedings for violation/s of the school policies.</label>
-</div>
-<div class="checkbox">
-    <input type="checkbox" id="b" <?php echo ($majoroffense == 0 && $minoroffense >= 1) ? 'checked' : ''; ?>>
-    <label for="checkbox"><strong>Category B:</strong> The student is generally of good moral character but was subjected
-        to administrative proceedings for less grave violation/s of the school policies. With
-        interventions given by the <?php echo htmlspecialchars($category); ?> class adviser, the student improved in <?php echo htmlspecialchars($category); ?>  behavior.
-    </label>
-</div>
-<div class="checkbox">
-    <input type="checkbox" id="c" <?php echo ($majoroffense == 1 && $minoroffense == 1) ? 'checked' : ''; ?>>
-    <label for="checkbox"><strong>Category C:</strong> The student is of good moral character and was subjected to
-        administrative proceedings for less grave violation/s of the school policies. With
-        interventions given by the guidance counselor, the student improved <?php echo htmlspecialchars($category); ?>   behavior.
-    </label>
-</div>
-<div class="checkbox">
-    <input type="checkbox" id="d" <?php echo ($majoroffense >= 1 && $minoroffense >= 1) ? 'checked' : ''; ?>>
-    <label for="checkbox"><strong>Category D:</strong> The student's record shows that in spite of interventions by the
-        class adviser and guidance counselor, there are no signs of improvement in <?php echo htmlspecialchars($category); ?> behavior or conduct.
-    </label>
-</div>
+                <input type="checkbox" id="b" <?php echo ($majoroffense == 0 && $minoroffense >= 1) ? 'checked' : ''; ?>>
+                <label for="checkbox"><strong>Category B:</strong> The student is generally of good moral character but was subjected
+                        to administrative proceedings for less grave violation/s of the school policies. With
+                         interventions given by the <?php echo htmlspecialchars($category); ?> class adviser, the student improved in <?php echo htmlspecialchars($category); ?>  behavior.
+                </label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="c" <?php echo ($majoroffense == 1 && $minoroffense == 1) ? 'checked' : ''; ?>>
+                <label for="checkbox"><strong>Category C:</strong> The student is of good moral character and was subjected to
+                        administrative proceedings for less grave violation/s of the school policies. With
+                        interventions given by the guidance counselor, the student improved <?php echo htmlspecialchars($category); ?>   behavior.
+                </label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="d" <?php echo ($majoroffense >= 1 && $minoroffense >= 1) ? 'checked' : ''; ?>>
+                <label for="checkbox"><strong>Category D:</strong> The student's record shows that in spite of interventions by the
+                        class adviser and guidance counselor, there are no signs of improvement in <?php echo htmlspecialchars($category); ?> behavior or conduct.
+                </label>
+            </div>
 
             <p>&emsp;&emsp;&emsp;&emsp;This certification is issued to the above-mentioned student for enrollment purposes.</p>
             <p>&emsp;&emsp;&emsp;&emsp;Issued this <strong id="dateAndTime"><?php echo $formattedDate; ?></strong> at <?php echo htmlspecialchars($school); ?>, <?php echo htmlspecialchars($place); ?>.</p>
-        </div>
+            </div>
 
-        <div class="signature">
+            <div class="signature">
           
-            <p><strong><?php echo htmlspecialchars($prinname); ?></strong></p>
-            <p><?php echo htmlspecialchars($position1); ?></p>
-            <p><?php echo htmlspecialchars($position2); ?></p>
-        </div>
-        <div class="bottom-logo">
-            <img src="bottom-logo.png" alt="Bottom Logo" class="bottom-logo">
-        </div>
+                <p><strong><?php echo htmlspecialchars($prinname); ?></strong></p>
+                <p><?php echo htmlspecialchars($position1); ?></p>
+                <p><?php echo htmlspecialchars($position2); ?></p>
+            </div>
+            <div class="bottom-logo">
+                <img src="bottom-logo.png" alt="Bottom Logo" class="bottom-logo">
+            </div>
        
-    </div>
-    <div class="print-button-container">
-        <button class="print-button" onclick="window.print()">Print Certificate</button>
-    </div>
-        
+            </div>
+            <div class="print-button-container">
+                <button class="print-button" onclick="window.print()">Print Certificate</button>
+            </div>
+
     <script>
-    <script>
-function printCertificate() {
-    // Hide unnecessary elements before printing
-    document.querySelector('.top-navigation').style.display = 'none';
-    document.querySelector('header').style.display = 'none';
-    
-    // Hide the timestamp before printing
-    var dateAndTimeElement = document.getElementById('dateAndTime');
-    dateAndTimeElement.style.display = 'none';
+        function printCertificate() {
+        // Hide unnecessary elements before printing
+            document.querySelector('.top-navigation').style.display = 'none';
+            document.querySelector('header').style.display = 'none';
+            
+        // Hide the timestamp before printing
+            var dateAndTimeElement = document.getElementById('dateAndTime');
+            dateAndTimeElement.style.display = 'none';
 
-    // Use the window.print() method to trigger the print dialog
-    window.print();
+        // Use the window.print() method to trigger the print dialog
+            window.print();
 
-    // Show the hidden elements after printing
-    document.querySelector('.top-navigation').style.display = 'block';
-    document.querySelector('header').style.display = 'flex';
+        // Show the hidden elements after printing
+            document.querySelector('.top-navigation').style.display = 'block';
+            document.querySelector('header').style.display = 'flex';
 
-    // Show the timestamp again after printing
-    dateAndTimeElement.style.display = 'inline';
-}
-
- 
+        // Show the timestamp again after printing
+            dateAndTimeElement.style.display = 'inline';
+        }
 
 </script>
 
-
-  
-
-
-</script>
 </body>
 </html>

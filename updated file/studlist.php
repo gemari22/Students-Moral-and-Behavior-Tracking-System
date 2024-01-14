@@ -13,8 +13,6 @@
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    // ... (Your database connection code remains the same)
-
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save'])) {
         $lrn = $_POST['lrn'];
         $level = $_POST['level'];
@@ -51,8 +49,7 @@
 
 
         if (mysqli_query($conn, $sql)) {
-            // Database update was successful
-            // You may redirect the user or display a success message
+   
         } else {
             // Handle the case where the update failed
             echo "Error updating record: " . mysqli_error($conn);
@@ -60,7 +57,6 @@
         
         }
     }
-
 
     // Check if a search query is provided
     $searchQuery = isset($_POST['search']) ? mysqli_real_escape_string($conn, $_POST['search']) : "";
@@ -73,7 +69,6 @@
 
     $result = mysqli_query($conn, $sql);
 
-    
     ?>
 
     <!DOCTYPE html>
@@ -113,7 +108,7 @@
                 <form method="post">
                     <input class="search-bar" type="text" placeholder="Search..." name="search" id="searchInput" value="<?php echo $searchQuery; ?>">
                     <button type="submit" class="search-button">Search</button>
-                    <a href="form.php" class="add-button">Add</a> <!-- Link to the "Add" form -->
+                    <a href="form.php" class="add-button">Add</a> 
                     <button type="submit" name="save" class="save-button">Save Changes</button>
                 </form>
             </div>

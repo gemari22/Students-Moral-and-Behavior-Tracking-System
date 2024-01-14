@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $occupation2 = mysqli_real_escape_string($conn, $_POST['occupation2']);
     $contact2 = mysqli_real_escape_string($conn, $_POST['contact2']);
     $language = mysqli_real_escape_string($conn, $_POST['language']);
-    $height = mysqli_real_escape_string($conn, $_POST['height']);  // Assuming height is a float
+    $height = mysqli_real_escape_string($conn, $_POST['height']);  
     $weight = mysqli_real_escape_string($conn, $_POST['weight']);
     $earlydisease = mysqli_real_escape_string($conn, $_POST['earlydisease']);
     $seriousaccident = mysqli_real_escape_string($conn, $_POST['seriousaccident']);
@@ -149,14 +149,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <title>Anecdotal Form</title>
 
-    <!-- Additional Navigation -->
     <nav class="top-navigation">
         <a href="principal.php">Principal Information</a>
         <a href="account.php">Change Account Information</a>
     </nav>
 
     <header>
-        <!-- Title on the left -->
+
         <div class="title">
             <div class="logo">
                 <img src="defemnhs.png" alt="Logo">
@@ -164,7 +163,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h1>ETHICARE</h1>
         </div>
 
-        <!-- Navigation on the right -->
         <nav>
             <a href="home.html">Homepage</a>
             <a href="studlist.php">Student Profile</a>
@@ -174,7 +172,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </nav>
     </header>
 
-    <!-- Add this style section for alert styling -->
     <style>
         /* Add this style to center the alert */
         .alert {
@@ -224,13 +221,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         background-color: #0056b3;
     }
 
-    /* Add this style to center the alert */
 </style>
 
-
-<body>
-    
-    
+<body> 
     <div class="container">
 
         <?php echo isset($alertMessage) ? $alertMessage : ''; ?>

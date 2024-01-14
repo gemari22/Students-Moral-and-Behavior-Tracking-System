@@ -7,14 +7,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $newUsername = $_POST['newUsername'];
     $newPassword = $_POST['newPassword'];
 
-    // Assuming you have a logged-in user (replace 'current_user' with your actual method of identifying the current user)
     $currentUsername = $_SESSION['username'];
 
     // Update the database
     if (!empty($newUsername)) {
         $updateUsernameQuery = "UPDATE user SET username = '$newUsername' WHERE username = '$currentUsername'";
         mysqli_query($con, $updateUsernameQuery);
-        $_SESSION['username'] = $newUsername; // Update the session variable
+        $_SESSION['username'] = $newUsername; 
     }
 
     if (!empty($newPassword)) {
@@ -105,23 +104,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         background-color: #87cefa;
     }
 </style>
-    <!-- Header -->
-    
-         <!-- Additional Navigation -->
+   
     <nav class="top-navigation">
     <a href="principal.php">Principal Information</a>
     <a href="account.php">Change Account Infomation</a>
 
     </nav>
     <header>
-        <!-- Title on the left -->
+
         <div class="title">
             <div class="logo">
                 <img src="defemnhs.png" alt="Logo">
             </div>
             <h1>ETHICARE</h1>
         </div>
-        <!-- Navigation on the right -->
+
         <nav>
             <a href="home.html">Homepage</a>
             <a href="studlist.php">Student Profile</a>

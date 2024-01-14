@@ -1,5 +1,5 @@
 <?php
-    // Handle form submission
+
     $dbhost = "localhost";
     $dbuser = "root";
     $dbpass = "";
@@ -24,7 +24,7 @@
                     });
                  </script>";
         } else {
-            // Insert data into the "users" table without hashing the password
+            // Insert data into the "user" table without hashing the password
             $sql = "INSERT INTO user (username, password) VALUES ('$username', '$password')";
     
             if ($conn->query($sql) === TRUE) {
